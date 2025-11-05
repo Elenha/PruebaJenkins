@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "org.sonarqube" version "6.3.1.5724"
+}
+
+group = 'org.sonar-jenkins-training'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "sonar-jenkins-training"
+        property "sonar.projectName", "sonar-jenkins-training"
+        property "sonar.host.url", "http://sonarqube:9000"
+        property "sonar.token", "sqp_dd8cba6daa1d1ada31e3a8a91d85e1b43b68c8da"
+    }
+}
