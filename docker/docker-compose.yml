@@ -40,9 +40,9 @@ services:
   jenkins:
     image: jenkins/jenkins:lts-jdk21
     container_name: jenkins
-    # volumes:
-      # - ./jenkins/conf:/var/jenkins_home
-      # - ~/tmp/Labs:/opt/sonar-jenkins-training
+    volumes:
+      - ./jenkins/conf:/var/jenkins_home
+      #- ~/tmp/Labs:/opt/sonar-jenkins-training
     ports:
       - '8080:8080'
       - '50000:50000'
@@ -74,4 +74,5 @@ networks:
         driver: default
         config:
           - subnet: 152.18.0.0/24
+
 
